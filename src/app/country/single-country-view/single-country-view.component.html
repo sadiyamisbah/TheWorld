@@ -1,0 +1,230 @@
+<!--header view-->
+<span *ngIf="flag">
+  <app-header-view [url]="flag" [subheading]="''" [heading]="''" [color]="'black'"></app-header-view>
+  <!--end of header view-->
+</span>
+<!-- container start -->
+<div class="container text-center" *ngIf="countryInfo">
+  
+<!-- heading -->
+
+<h1 class="clr">{{countryInfo.name}}</h1>
+
+
+
+<nav class="navbar navbar-expand-md ">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <i class='fa fa-bars '></i>
+  </button>
+  <!-- Nav pills -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar nav nav-pills mx-auto justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#home">Languages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu1">Currencies</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu2">Border</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu3">Regional Blocs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu4">Translations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu5">Codes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#menu6">Geographic Information</a>
+      </li>
+    </ul>
+  </div>
+</nav><!-- nav end -->
+
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active container" id="home">
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="http://www.redorbit.com/media/uploads/2014/11/bilingual-brains.jpg">
+      </div>
+      <div class="col-12 col-sm-8 mt-5 mx-auto">
+        <h1 style="font-size:4.3vmin">Languages</h1>
+        <span *ngIf="checkValue(countryInfo.languages);else noAvail">
+          <span *ngFor="let lang of countryInfo.languages;let last=last;">
+            <a [routerLink]="['/allCountry','lang',lang.iso639_1]" id="subheading" title="Search by Language">{{lang.name }}{{(last) ? " ":", "}}</a>
+          </span>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div>
+    </div>
+  </div><!-- home end -->
+  <div class="tab-pane container" id="menu1">
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="http://www.haraldhau.com/wp-content/uploads/The-Exchange-Rate-Effect-of-Multi-Currency-Risk-Arbitrage.jpg">
+      </div>
+      <div class="col-12 col-sm-8  mt-5 mx-auto">
+        <h1 style="font-size:4.3vmin">Currency(s)</h1>
+        <span *ngIf="checkValue(countryInfo.currencies);else noAvail">
+          <span *ngFor="let currency of countryInfo.currencies;let last=last;">
+            <a [routerLink]="['/allCountry','currency',currency.code]" id="subheading" title="Search by Currency">{{currency.name }}{{(last) ? " ":", "}}
+            </a>
+          </span>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div>
+    </div>
+  </div><!-- menu1 end -->
+  <div class="tab-pane container" id="menu2">
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="https://images.unsplash.com/photo-1512428380482-c17ac67efb93?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b39d5451e936c3ff439079b900a046fa&auto=format&fit=crop&w=667&q=80">
+      </div>
+      <div class="col-12 col-sm-8  mt-5 mx-auto">
+        <h1 style="font-size:4.3vmin">Border(s)</h1>
+        <span *ngIf="checkValue(countryInfo.borders);else noAvail">
+          <span id="subheading">
+            {{countryInfo.borders.toString()}}
+          </span>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div>
+    </div>
+  </div><!-- menu2 end -->
+  <div class="tab-pane container" id="menu3">
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="https://images.unsplash.com/photo-1510235336324-2d2dd994f90a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6e48f99d6f6bc651f27e6e6df59aa6c3&auto=format&fit=crop&w=500&q=60">
+      </div>
+      <div class="col-12 col-sm-8  mt-5 mx-auto">
+        <h1 style="font-size:4.3vmin">Regional Blocs</h1>
+        <span *ngIf="checkValue(countryInfo.regionalBlocs);else noAvail">
+          <span *ngFor="let currency of countryInfo.regionalBlocs;let last=last;" id="subheading">
+            {{currency.name }}{{(last) ? " ":", "}}
+
+          </span>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div>
+    </div>
+  </div><!-- menu3 end -->
+  <div class="tab-pane" id="menu4">
+
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="http://img.techentice.com/img/language-translation.jpg">
+      </div>
+      <div class="col-12 col-sm-8 mt-5">
+        <h1 style="font-size:4.3vmin">Translations</h1>
+        <span *ngIf="checkValue(countryInfo.translations);else noAvail">
+          <span id="subheading">
+            {{translation.toString()}}
+          </span>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div> <!-- column end -->
+    </div><!-- row end -->
+
+  </div><!-- menu4 end -->
+
+  <div class="tab-pane" id="menu5">
+
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="https://voipscan.eu/images/News/codes.jpg">
+      </div>
+      <div class="col-12 col-sm-8 mt-5">
+        <h1 style="font-size:4.3vmin">Codes</h1>
+        <span *ngIf="checkValue(countryInfo.callingCodes);else noAvail">
+          <span id="subheading">
+           Calling code: {{countryInfo.callingCodes}}
+          </span>
+          <br>
+          <span id="subheading">
+            Alpha 2 code: {{countryInfo.alpha2Code}}
+          </span>
+          <br>
+          <span id="subheading">
+            Alpha 3 code: {{countryInfo.alpha3Code}}
+          </span>
+          <br>
+          <span id="subheading">
+            Numeric code: {{countryInfo.numericCode}}
+          </span>
+          <br>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div> <!-- column end -->
+    </div><!-- row end -->
+
+  </div><!-- menu5 end -->
+
+
+  <div class="tab-pane" id="menu6">
+
+    <div class="row">
+      <div class="col-sm-4 d-none d-sm-block">
+        <img style="width:100%;height:240px" src="https://images.unsplash.com/photo-1519686270607-648e58bb7563?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c98a82fa16013e7412de1b7ebcdf825&auto=format&fit=crop&w=750&q=80">
+      </div>
+
+      <div class="col-12 col-sm-8 mt-5">
+        <h1 style="font-size:4.3vmin">Geographic Information</h1>
+        <span *ngIf="checkValue(countryInfo.population);else noAvail">
+          <span id="subheading">
+           Population: {{countryInfo.population}}
+          </span>
+          <br>
+          <span id="subheading">
+          Latitude and longitude: {{countryInfo.latlng}}
+          </span>
+          <br>
+          <span id="subheading">
+           Area: {{countryInfo.area}}
+          </span>
+          <br>
+          <span id="subheading">
+            Gini Index: {{countryInfo.gini}}
+          </span>
+          <br>
+        </span>
+        <ng-template #noAvail>
+          <span id="subheading">Not Available</span>
+        </ng-template>
+      </div> <!-- column end -->
+    </div><!-- row end -->
+
+  </div><!-- menu6 end -->
+
+
+
+</div><!-- tab content end -->
+<br><br><br><br><br><br>
+<h1 class="heading1">Few more details...</h1>
+
+  <app-image-design [pos]=1
+    [keyValue]="[{'Capital':countryInfo.capital,'Region':countryInfo.region,'Sub Region':countryInfo.subregion,'Native Name':countryInfo.nativeName,'Demonym':countryInfo.demonym,'Spellings':countryInfo.altSpellings}]">
+  </app-image-design>
+
+<!-- heading -->
+  
+  <a class="btn clr btn-lg border float-right " id="back-button" (click)="goBack()" style="background-color: #815e87">Go Back</a>
+
+
+</div><!-- end -->

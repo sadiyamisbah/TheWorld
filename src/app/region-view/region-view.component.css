@@ -1,0 +1,58 @@
+
+.row-adjust{
+    margin-top:15vmin;
+}
+.top-adjust{
+    margin-top:15vh;
+   
+}
+.back-img{
+    background-repeat: no-repeat;
+    background-size:cover;
+
+    min-height:100vh;
+   
+ 
+}
+.bg { 
+   
+    height: 100% !important; 
+    width:100% !important;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-1{
+    background-image: url(../../assets/asia.png);
+    box-shadow:10px 10px 8px #557A95;
+}
+.img-2{
+    background-image: url(../../assets/america.jpg);
+    box-shadow:10px 10px 8px #C3083F;
+}
+.img-3{
+    background-image: url(../../assets/africa.jpg);
+    box-shadow:10px 10px 8px #AFD274;
+}
+.img-4{
+    background-image: url(../../assets/europe.jpg);
+    box-shadow:10px 10px 8px #F3D24F;
+}
+.img-5{
+    background-image: url(../../assets/ocenia.jpg);
+    box-shadow:10px 10px 8px #5CA2D5;
+}
+h1{
+    font-family:impact;
+    color:#19191B;
+    font-weight:bold;
+    font-size:10vmin;
+   
+}
+h5{
+    color:white;
+    font-size:3.3vmin;
+}

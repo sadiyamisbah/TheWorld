@@ -1,0 +1,35 @@
+<div class="row row-adjust mx-5" *ngIf="pos==0">
+  <div class="col-12 col-sm-9 shadow text-center border">
+    <span *ngFor="let item of a">
+      <h3 id="heading" class="mt-2">
+        {{item[0]}}
+      </h3>
+      <h5 id="subheading">
+        {{item[1]}}
+      </h5>
+    </span>
+  </div><!-- column end -->
+  <div class="col-sm-3 d-none d-sm-block ">
+    <img class="img-fluid border " style="height:190px" [src]="imageUrl">
+  </div><!-- clumn end -->
+</div><!-- row end -->
+
+<div class="row row-adjust  mx-5" *ngIf="pos==1">
+  
+  <div class="col-12 col-sm-9 shadow text-center border">
+    <span *ngFor="let item of a">
+      <h3 id="heading" class="mt-2">
+        {{item[0]}}
+      </h3>
+      <h5 *ngIf="checkValue(item[1]);else noAvail" id="subheading">
+        {{item[1]}}
+      </h5>
+      <ng-template #noAvail>
+        <span id="subheading">
+          Not Available
+        </span>
+      </ng-template>
+    </span>
+  </div><!-- column end -->
+
+</div><!-- row end -->

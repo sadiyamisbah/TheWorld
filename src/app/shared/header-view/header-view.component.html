@@ -1,0 +1,32 @@
+<!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+            <a class="navbar-brand" [routerLink]="['/home']">TheWorld</a>
+        </div>
+
+
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+
+<header class="intro-header" [style.background-image]="imageUrl">
+    <div class="container">
+        <div class="row px-5">
+            <div class="col-lg-12 col-md-12">
+                <div class="site-heading">
+                    <h1 [style.color]="color">{{heading}} </h1>
+
+                    <span [style.color]="color" class="subheading "> {{subheading}} </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-3 border shadow" *ngFor="let item of a">
+    <h3 id="heading">
+      {{item[0]}}
+    </h3>
+    <h5 *ngIf="checkValue(item[1]);else noAvail" id="subheading">
+      {{item[1]}}
+    </h5>
+    <ng-template #noAvail>
+      <span id="subheading">
+        Not Available
+      </span>
+    </ng-template>
+  </div><!-- column end -->
+
+</div><!-- row end -->

@@ -1,0 +1,152 @@
+<!--header view-->
+<app-header-view class="bg1" [url]="'https://wallpapercave.com/wp/TCbr2Uh.jpg'"
+  [heading]="entityValue.toUpperCase()" [color]="'black'"></app-header-view>
+<!--end of header view-->
+<!-- container start -->
+<div class="container" *ngIf="countryList">
+
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <p class="btn clr btn-md">Wanna be specific?</p>
+
+    </div>
+  </div><!-- row end -->
+
+  <div class="row mb-5">
+    
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">May I have the Country Name?</label>
+          <input type="text" name="textVal" [(ngModel)]="textValueName" class="form-control">
+        </div>
+      </form>
+
+    </div><!-- column end -->
+
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">May I have the Country Capital?</label>
+          <input type="text" name="textVal" [(ngModel)]="textValueCapital" class="form-control">
+        </div>
+      </form>
+
+    </div><!-- column end -->
+
+    <div class="col-4">
+      <form #myForm="ngForm">
+        <div class="form-group">
+          <label id="label-set">May I have the order?</label>
+          <select [(ngModel)]="inputValue" name="inputVal" class="form-control">
+            <option value="ascending" [selected]>Ascending</option>
+            <option value="descending">Descending</option>
+          </select>
+        </div>
+      </form>
+
+    </div>
+
+  </div><!-- row end -->
+
+  <!--<div class="row mb-5">
+    <div class="col-2 col-md-1 btn btn-info   border" (click)="alphabetSort('All')">All</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('A')">A</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('B')">B</div>
+    <div class="col-2 col-md-1 btn btn-info  border" (click)="alphabetSort('C')">C</div>
+    <div class="col-2 col-md-1 btn btn-info  border" (click)="alphabetSort('D')">D</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('E')">E</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('F')">F </div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('G')">G</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('H')">H</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('I')">I</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('J')">J</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('K')">K</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('L')">L</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('M')">M</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('N')">N</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('O')">O</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('P')">P</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Q')">Q</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('R')">R</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('S')">S</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('T')">T</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('U')">U</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('V')">V</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('W')">W</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('X')">X</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Y')">Y</div>
+    <div class="col-2 col-md-1 btn btn-info border" (click)="alphabetSort('Z')">Z</div>
+
+
+  </div><!-- row end -->
+
+<!-- row start -->
+  <div class="row">
+    <div *ngFor="let country of countryList  | sort:[inputValue,textValueName,textValueCapital] | paginate: { itemsPerPage: 12, currentPage: p }; let i = index"
+      class="col-sm-6 col-lg-4 mb-4">
+      <div class="card">
+        <img class="card-img-top border img-fluid" id="img-size" src="{{country.flag}}" alt="Flag image">
+        
+
+        <div class="card-body">
+              <b id="heading">Name :</b>
+              <span *ngIf="checkValue(country.name);else nonAvail" id="subheading">{{setName(country.name)}}
+              </span>
+              <br>
+              <b id="heading">Capital :</b>
+              <span *ngIf="checkValue(country.capital);else nonAvail" id="subheading">{{setName(country.capital)}}
+              </span>
+              <br>
+              <b id="heading">Region :</b>
+              <span *ngIf="checkValue(country.region);else noAvail" id="subheading">{{country.region}}
+
+              </span>
+              <ng-template #noAvail>
+                <span id="subheading">Not Available</span>
+              </ng-template>
+              <br/>
+              <b id="heading">SubRegion :</b>
+              <span *ngIf="checkValue(country.subregion);else noAvail" id="subheading">{{country.subregion}}
+
+              </span>
+              <br/>
+              <b id="heading">TimeZone(s) :</b>
+              <span *ngIf="checkValue(country.timezones);else noAvail" id="subheading">{{country.timezones.toString()}}
+
+              </span>
+
+              <b id="heading">Language(s) :</b>
+              <span *ngIf="checkValue(country.languages);else noAvail" id="subheading">
+                  <span *ngFor="let lang of country.languages;let last=last;" id="subheading">
+                      <a style="color:#b75b7e" [routerLink]="['/allCountry','lang',lang.iso639_1]" title="Search by Language">{{lang.name }}{{(last) ? " ":", "}}</a>
+                  </span>
+              </span>
+
+              <br>
+              <b id="heading">Currency :</b>
+              <span *ngIf="checkValue(country.currencies);else noAvail" id="subheading">
+                  <span *ngFor="let currency of country.currencies;let last=last;" id="subheading">
+                      <a style="color:#b75b7e" [routerLink]="['/allCountry','currency',currency.code]" title="Search by Currency">{{currency.name }}{{(last) ? " ":", "}}
+                      </a>
+                    </span>
+              </span>
+
+            <!-- home end -->
+            
+          <!-- tab content -->
+        </div><!-- card body -->
+        <div class="card-footer">
+          <a class="btn btn-block text-light clr" [routerLink]="['/Country',country.name]">Details</a>
+        </div><!-- card footer -->
+      </div><!-- card -->
+    </div>
+    <!-- column end -->
+  </div><!-- row end -->
+  <a class="btn btn-lg border float-right clr" id="back-button" (click)="goBack()">Go Back</a>
+  <!-- row end -->
+  <div class="text-center mt-5">
+    <pagination-controls  (pageChange)="p = $event" autoHide="true" previousLabel="previous" nextLabel="next"></pagination-controls>
+  </div>
+</div>
+<!-- container end -->

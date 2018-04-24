@@ -1,0 +1,55 @@
+h1{
+    font-family:garamond;
+    color:rgb(97, 65, 95);
+    font-weight:bold;
+    font-size:6vmin;
+    
+}
+h3{
+    font-size:3.3vmin;
+}
+
+.heading{
+    font-size:6vmin;
+    font-weight:bold;
+    font-family:garamond;
+    color:#815e87 !important;
+   
+    text-align:left;
+}
+
+.heading1{
+    font-size:5vmin;
+    font-weight:bold;
+    font-family:garamond;
+    color:#815e87 !important;
+   
+    text-align:center;
+}
+
+#content-left {  
+    text-align: left;
+}
+#subheading{
+    color:rgb(219, 132, 190);
+    
+    font-family:cursive;
+    font-size:15px;
+}
+
+.nav-link{
+    background-color: #815e87;
+    color:white;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color:rgb(97, 65, 95);
+}
+
+.clr{
+    
+    color:rgb(97, 65, 95);
+}
+
+
