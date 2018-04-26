@@ -115,7 +115,7 @@
               <span *ngIf="checkValue(country.timezones);else noAvail" id="subheading">{{country.timezones.toString()}}
 
               </span>
-
+              <br/>
               <b id="heading">Language(s) :</b>
               <span *ngIf="checkValue(country.languages);else noAvail" id="subheading">
                   <span *ngFor="let lang of country.languages;let last=last;" id="subheading">
